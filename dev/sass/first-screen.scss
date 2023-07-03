@@ -50,7 +50,11 @@ body {
     align-items: stretch;
     .country-flag {
       border: 2px solid #00000079;
-      max-width: 100%;
+      img {
+        width: 180px;
+        height: 100px;
+        object-fit: cover;
+      }
     }
     .country-name {
       padding-top: 15px;
