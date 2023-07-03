@@ -1,3 +1,4 @@
+// початковий код
 const countryInfo = [
   {
     id: 1,
@@ -97,9 +98,15 @@ window.addEventListener("load", function () {
   }
   getStrengthVal();
 
-  function mainlandFilter() {}
+  function mainlandFilter() {
+    return config.mainland === "all"
+      ? countryInfo
+      : countryInfo.filter((item) => item.mainland === config.mainland);
+  }
 
   function strengthFilter() {
     return countryInfo.filter((item) => item.strength <= config.strength);
   }
 });
+
+// код не працює

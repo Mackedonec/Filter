@@ -4,49 +4,49 @@ const countryInfo = [
     flag: "assets/img/China.png",
     name: "КНР",
     strength: 1439,
-    mainland: "Євразія",
+    mainland: "eurasia",
   },
   {
     id: 2,
     flag: "assets/img/India.png",
     name: "Індія",
     strength: 1380,
-    mainland: "Євразія",
+    mainland: "eurasia",
   },
   {
     id: 3,
     flag: "assets/img/India.png",
     name: "США",
     strength: 331,
-    mainland: "Північна Америка",
+    mainland: "north_america",
   },
   {
     id: 4,
     flag: "assets/img/India.png",
     name: "Індонезія",
     strength: 273,
-    mainland: "Євразія",
+    mainland: "eurasia",
   },
   {
     id: 5,
     flag: "assets/img/India.png",
     name: "Пакистан",
     strength: 220,
-    mainland: "Євразія",
+    mainland: "eurasia",
   },
   {
     id: 6,
     flag: "assets/img/India.png",
     name: "Бразилія",
     strength: 212,
-    mainland: "Південна Америка",
+    mainland: "south_america",
   },
   {
     id: 7,
     flag: "assets/img/India.png",
     name: "Нігерія",
     strength: 206,
-    mainland: "Африка",
+    mainland: "africa",
   },
 ];
 
@@ -58,32 +58,65 @@ window.addEventListener("load", function () {
   const renderCountries = (countries) => {
     const list = countries
       .map((country) => {
+        let mainlandName;
+        switch (country.mainland) {
+          case "eurasia":
+            mainlandName = "Євразія";
+            break;
+          case "africa":
+            mainlandName = "Африка";
+            break;
+          case "north_america":
+            mainlandName = "Північна Америка";
+            break;
+          case "south_america":
+            mainlandName = "Південна Америка";
+            break;
+          case "australia":
+            mainlandName = "Австралія";
+            break;
+          default:
+            mainlandName = country.mainland;
+        }
         return `
-        <div class="countries">
-          <div class="country-flag"><img src="${country.flag}" class="img-fluid" alt="${country.name}"></div>
-          <div class="country-name">${country.name}</div>
-          <div class="country-strength">${country.strength}</div>
-          <div class="country-mainland">${country.mainland}</div>
-        </div>
-        `;
+          <div class="countries">
+            <div class="country-flag"><img src="${country.flag}" class="img-fluid" alt="${country.name}"></div>
+            <div class="country-name">${country.name}</div>
+            <div class="country-strength">${country.strength}</div>
+            <div class="country-mainland">${mainlandName}</div>
+          </div>
+          `;
       })
       .join("");
     countryItem.innerHTML = list;
   };
-  renderCountries(countryInfo);
 
   const config = {
     mainland: "all",
     strength: 1439,
   };
 
+  function applyFilters() {
+    const filteredCountries = countryInfo.filter((item) => {
+      const strength = parseInt(item.strength);
+      const mainland = item.mainland;
+
+      const strengthFilterPassed = strength <= config.strength;
+      const mainlandFilterPassed =
+        config.mainland === "all" || mainland === config.mainland;
+
+      return strengthFilterPassed && mainlandFilterPassed;
+    });
+
+    renderCountries(filteredCountries);
+  }
+
   function getMainlandVal() {
     mainlandRadio.forEach((item) => {
       item.addEventListener("click", (event) => {
         let val = event.target.value;
         config.mainland = val;
-        const filteredMainland = mainlandFilter();
-        renderCountries(filteredMainland);
+        applyFilters();
       });
     });
   }
@@ -93,22 +126,10 @@ window.addEventListener("load", function () {
     strengthRange.addEventListener("input", (event) => {
       let val = parseInt(event.target.value);
       config.strength = val;
-      const filteredStrength = strengthFilter();
-      renderCountries(filteredStrength);
+      applyFilters();
     });
   }
   getStrengthVal();
 
-  function strengthFilter() {
-    return countryInfo.filter((item) => {
-      const strength = parseInt(item.strength);
-      return strength <= config.strength;
-    });
-  }
-
-  function mainlandFilter() {
-    return config.mainland === "all"
-      ? countryInfo
-      : countryInfo.filter((item) => item.mainland === config.mainland);
-  }
+  applyFilters();
 });
