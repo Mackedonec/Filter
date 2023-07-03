@@ -278,7 +278,7 @@ window.addEventListener("load", function () {
           <div class="countries">
             <div class="country-flag"><img src="${country.flag}" class="img-fluid" alt="${country.name}"></div>
             <div class="country-name">${country.name}</div>
-            <div class="country-strength">${country.strength} мільйонів</div>
+            <div class="country-strength">${country.strength} міл.</div>
             <div class="country-mainland">${mainlandName}</div>
           </div>
           `;
