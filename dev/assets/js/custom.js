@@ -479,6 +479,86 @@ const countryInfo = [
     strength: 20,
     mainland: "africa",
   },
+  {
+    id: 61,
+    flag: "assets/img/Romania.png",
+    name: "Румунія",
+    bill: "",
+    strength: 19,
+    mainland: "eurasia",
+  },
+  {
+    id: 62,
+    flag: "assets/img/Malawi.png",
+    name: "Малаві",
+    bill: "",
+    strength: 19,
+    mainland: "africa",
+  },
+  {
+    id: 63,
+    flag: "assets/img/Chile.png",
+    name: "Чилі",
+    bill: "",
+    strength: 19,
+    mainland: "south_america",
+  },
+  {
+    id: 64,
+    flag: "assets/img/Kazakhstan.png",
+    name: "Казахстан",
+    bill: "",
+    strength: 18,
+    mainland: "eurasia",
+  },
+  {
+    id: 65,
+    flag: "assets/img/Zambia.png",
+    name: "Замбія",
+    bill: "",
+    strength: 18,
+    mainland: "africa",
+  },
+  {
+    id: 66,
+    flag: "assets/img/Guatemala.png",
+    name: "Гватемала",
+    bill: "",
+    strength: 17,
+    mainland: "south_america",
+  },
+  {
+    id: 67,
+    flag: "assets/img/Ecuador.png",
+    name: "Еквадор",
+    bill: "",
+    strength: 17,
+    mainland: "south_america",
+  },
+  {
+    id: 68,
+    flag: "assets/img/Siria.png",
+    name: "Сирія",
+    bill: "",
+    strength: 17,
+    mainland: "eurasia",
+  },
+  {
+    id: 69,
+    flag: "assets/img/Netherlands.png",
+    name: "Нідерланди",
+    bill: "",
+    strength: 17,
+    mainland: "eurasia",
+  },
+  {
+    id: 70,
+    flag: "assets/img/Senegal.png",
+    name: "Сенегал",
+    bill: "",
+    strength: 16,
+    mainland: "africa",
+  },
 ];
 
 window.addEventListener("load", function () {
@@ -565,14 +645,13 @@ window.addEventListener("load", function () {
   getStrengthVal();
 
   applyFilters();
-
-  $(document).ready(function () {
-    Fancybox.bind("[data-fancybox]", {
-      loop: true,
-      buttons: ["zoom", "slideShow", "fullScreen", "close"],
-      animationEffect: "fade",
-      transitionEffect: "slide",
-      animationDuration: 600,
-    });
+});
+$(document).ready(function () {
+  Fancybox.bind("[data-fancybox]", {
+    loop: true,
+    buttons: ["zoom", "slideShow", "fullScreen", "close"],
+    animationEffect: "fade",
+    transitionEffect: "slide",
+    animationDuration: 600,
   });
 });
