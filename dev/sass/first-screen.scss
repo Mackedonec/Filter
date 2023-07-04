@@ -43,6 +43,13 @@ main {
       .strength-max {
         color: #fe8873f8;
       }
+      #strength-value {
+        margin-top: 5px;
+        padding: 0 5px;
+        width: 50px;
+        color: #000;
+        background-color: #9b9a9aa6;
+      }
     }
   }
   .radio {

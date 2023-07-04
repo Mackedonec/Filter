@@ -559,6 +559,86 @@ const countryInfo = [
     strength: 16,
     mainland: "africa",
   },
+  {
+    id: 71,
+    flag: "assets/img/Cambodia.png",
+    name: "Камбоджа",
+    bill: "",
+    strength: 16,
+    mainland: "eurasia",
+  },
+  {
+    id: 72,
+    flag: "assets/img/Chad.png",
+    name: "Чад",
+    bill: "",
+    strength: 16,
+    mainland: "africa",
+  },
+  {
+    id: 73,
+    flag: "assets/img/Somalia.png",
+    name: "Сомалі",
+    bill: "",
+    strength: 15,
+    mainland: "africa",
+  },
+  {
+    id: 74,
+    flag: "assets/img/Zimbabwe.png",
+    name: "Зімбабве",
+    bill: "",
+    strength: 14,
+    mainland: "africa",
+  },
+  {
+    id: 75,
+    flag: "assets/img/Guinea.png",
+    name: "Гвінея",
+    bill: "",
+    strength: 13,
+    mainland: "africa",
+  },
+  {
+    id: 76,
+    flag: "assets/img/Rwanda.png",
+    name: "Руанда",
+    bill: "",
+    strength: 12,
+    mainland: "africa",
+  },
+  {
+    id: 77,
+    flag: "assets/img/Benin.png",
+    name: "Бенін",
+    bill: "",
+    strength: 12,
+    mainland: "africa",
+  },
+  {
+    id: 78,
+    flag: "assets/img/Burundi.png",
+    name: "Бурунді",
+    bill: "",
+    strength: 11,
+    mainland: "africa",
+  },
+  {
+    id: 79,
+    flag: "assets/img/Tunisia.png",
+    name: "Туніс",
+    bill: "",
+    strength: 11,
+    mainland: "africa",
+  },
+  {
+    id: 80,
+    flag: "assets/img/Bolivia.png",
+    name: "Болівія",
+    bill: "",
+    strength: 11,
+    mainland: "africa",
+  },
 ];
 
 window.addEventListener("load", function () {
@@ -594,7 +674,8 @@ window.addEventListener("load", function () {
           <div class="countries">
             <div class="country-flag">
             <a href="${country.flag}" data-fancybox="gallery" data-caption="${country.name}">
-            <img src="${country.flag}" class="img-fluid" alt="${country.name}"> </a></div>
+            <img src="${country.flag}" class="img-fluid" alt="${country.name}">
+            </a></div>
             <div class="country-name">${country.name}</div>
             <div class="country-strength">${country.bill}${country.strength} міл.</div>
             <div class="country-mainland">${mainlandName}</div>
@@ -607,7 +688,7 @@ window.addEventListener("load", function () {
 
   const config = {
     mainland: "all",
-    strength: 1439,
+    strength: 440,
   };
 
   function applyFilters() {
