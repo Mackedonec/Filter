@@ -512,7 +512,7 @@ window.addEventListener("load", function () {
         return `
           <div class="countries">
             <div class="country-flag">
-            <a href="${country.flag}" data-fancybox="gallery" data-caption="gallery-img">
+            <a href="${country.flag}" data-fancybox="gallery" data-caption="${country.name}">
             <img src="${country.flag}" class="img-fluid" alt="${country.name}"> </a></div>
             <div class="country-name">${country.name}</div>
             <div class="country-strength">${country.bill}${country.strength} міл.</div>
