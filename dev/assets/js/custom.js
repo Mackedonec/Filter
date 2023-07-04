@@ -565,6 +565,7 @@ window.addEventListener("load", function () {
   const countryItem = document.querySelector(".item");
   const mainlandRadio = document.querySelectorAll('[type="radio"]');
   const strengthRange = document.querySelector("#strength");
+  const strengthValue = document.querySelector("#strength-value");
 
   const renderCountries = (countries) => {
     const list = countries
@@ -639,6 +640,7 @@ window.addEventListener("load", function () {
     strengthRange.addEventListener("input", (event) => {
       let val = parseInt(event.target.value);
       config.strength = val;
+      strengthValue.innerHTML = val;
       applyFilters();
     });
   }

@@ -33,6 +33,17 @@ main {
     max-width: 500px;
     padding-top: 35px;
     margin: 20px 50px 20px 30px;
+    .strength-box {
+      margin-top: -15px;
+      display: flex;
+      justify-content: space-between;
+      .strength-min {
+        color: #04ff04;
+      }
+      .strength-max {
+        color: #fe8873f8;
+      }
+    }
   }
   .radio {
     max-width: 500px;
