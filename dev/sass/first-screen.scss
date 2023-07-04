@@ -88,6 +88,7 @@ main {
     align-items: stretch;
     .country-flag {
       border: 2px solid #00000079;
+
       img {
         width: 180px;
         height: 100px;
@@ -98,4 +99,13 @@ main {
       padding-top: 15px;
     }
   }
+}
+
+.fancybox-image {
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 1920px;
 }
