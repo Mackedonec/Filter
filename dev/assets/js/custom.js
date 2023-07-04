@@ -365,7 +365,7 @@ const countryInfo = [
   },
   {
     id: 53,
-    flag: "assets/img/Côte_d'Ivoire.png",
+    flag: "assets/img/Cote_divoire.png",
     name: "Кот-д'Івуар",
     strength: 26,
     mainland: "africa",
