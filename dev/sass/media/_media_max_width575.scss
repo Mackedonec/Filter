@@ -1,3 +1,40 @@
 @media screen and (max-width: 575px) {
-    
+  header {
+    height: 5px;
+  }
+  .sort {
+    font-size: 14px;
+    font-weight: 500;
+    .range {
+      padding-top: 15px;
+      margin: 10px 20px;
+    }
+    .radio {
+      margin: 10px 20px;
+      .form-check-label {
+        padding-left: 5px;
+      }
+    }
+  }
+  .item {
+    font-size: 10px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(80px, max-content));
+    margin: 10px auto;
+    .countries {
+      width: 80px;
+      height: 100px;
+      padding: 5px;
+
+      .country-flag {
+        img {
+          width: 70px;
+          height: 30px;
+        }
+      }
+      .country-name {
+        padding-top: 5px;
+      }
+    }
+  }
 }
