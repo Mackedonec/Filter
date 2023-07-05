@@ -31,7 +31,6 @@ main {
   .range {
     text-align: center;
     max-width: 500px;
-    padding-top: 35px;
     margin: 20px 50px 20px 30px;
     .strength-box {
       margin-top: -15px;
@@ -49,6 +48,27 @@ main {
         width: 50px;
         color: #000;
         background-color: #9b9a9aa6;
+      }
+    }
+  }
+  .serch {
+    margin: 0 auto;
+    max-width: 200px;
+    text-align: center;
+    span {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-control {
+      width: 200px;
+      &[type="text"] {
+        &:focus,
+        &:active {
+          box-shadow: none;
+        }
+        &:focus-visible {
+          outline: none;
+        }
       }
     }
   }

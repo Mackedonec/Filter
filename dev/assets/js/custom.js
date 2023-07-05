@@ -800,12 +800,12 @@ const countryInfo = [
     mainland: "eurasia",
   },
 ];
-
 window.addEventListener("load", function () {
   const countryItem = document.querySelector(".item");
   const mainlandRadio = document.querySelectorAll('[type="radio"]');
   const strengthRange = document.querySelector("#strength");
   const strengthValue = document.querySelector("#strength-value");
+  const searchInput = document.querySelector(".form-control");
 
   const renderCountries = (countries) => {
     const list = countries
@@ -831,16 +831,17 @@ window.addEventListener("load", function () {
             mainlandName = country.mainland;
         }
         return `
-          <div class="countries">
-            <div class="country-flag">
+        <div class="countries">
+          <div class="country-flag">
             <a href="${country.flag}" data-fancybox="gallery" data-caption="${country.name}">
-            <img src="${country.flag}" class="img-fluid" alt="${country.name}">
-            </a></div>
-            <div class="country-name">${country.name}</div>
-            <div class="country-strength">${country.bill}${country.strength} міл.</div>
-            <div class="country-mainland">${mainlandName}</div>
+              <img src="${country.flag}" class="img-fluid" alt="${country.name}">
+            </a>
           </div>
-          `;
+          <div class="country-name">${country.name}</div>
+          <div class="country-strength">${country.bill}${country.strength} міл.</div>
+          <div class="country-mainland">${mainlandName}</div>
+        </div>
+      `;
       })
       .join("");
     countryItem.innerHTML = list;
@@ -849,24 +850,27 @@ window.addEventListener("load", function () {
   const config = {
     mainland: "all",
     strength: 440,
+    name: "",
   };
 
-  function applyFilters() {
+  const applyFilters = () => {
     const filteredCountries = countryInfo.filter((item) => {
       const strength = parseInt(item.strength);
       const mainland = item.mainland;
+      const name = item.name.toLowerCase();
 
       const strengthFilterPassed = strength <= config.strength;
       const mainlandFilterPassed =
         config.mainland === "all" || mainland === config.mainland;
+      const nameFilterPassed = name.includes(config.name.toLowerCase());
 
-      return strengthFilterPassed && mainlandFilterPassed;
+      return strengthFilterPassed && mainlandFilterPassed && nameFilterPassed;
     });
 
     renderCountries(filteredCountries);
-  }
+  };
 
-  function getMainlandVal() {
+  const getMainlandVal = () => {
     mainlandRadio.forEach((item) => {
       item.addEventListener("click", (event) => {
         let val = event.target.value;
@@ -874,21 +878,29 @@ window.addEventListener("load", function () {
         applyFilters();
       });
     });
-  }
+  };
   getMainlandVal();
 
-  function getStrengthVal() {
+  const getStrengthVal = () => {
     strengthRange.addEventListener("input", (event) => {
       let val = parseInt(event.target.value);
       config.strength = val;
       strengthValue.innerHTML = val;
       applyFilters();
     });
-  }
+  };
   getStrengthVal();
+
+  const searchCountries = () => {
+    config.name = searchInput.value;
+    applyFilters();
+  };
+
+  searchInput.addEventListener("input", searchCountries);
 
   applyFilters();
 });
+
 $(document).ready(function () {
   Fancybox.bind("[data-fancybox]", {
     loop: true,
